@@ -1,1 +1,18 @@
-<div class="footer">footer</div>
+<div class="footer">
+    Account System Sdk
+</div>
+<script type="text/javascript">
+    window.onload = function() {
+        var setfooterHeight = function() {
+            document.querySelector('.footer').style.marginTop = '0px';
+            if (window.innerHeight > document.body.offsetHeight) {
+                document.querySelector('.footer').style.marginTop = (window.innerHeight - document.body.offsetHeight) + 'px';
+            }
+        }
+
+        setfooterHeight();
+        window.addEventListener('resize', function(e) {
+            setfooterHeight();
+        })
+    }
+</script>

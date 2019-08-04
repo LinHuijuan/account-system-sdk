@@ -1,23 +1,54 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-
 <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>登录</title>
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="keywords" content>
     <meta name="description" content>
     <meta name="apple-mobile-web-app-capable" content="no">
     <meta name="format-detection" content="telephone=no">
     
-<link rel="stylesheet" type="text/css" href="..\css\index.css?v=1564761996506"></head>
+<link rel="stylesheet" type="text/css" href="..\css\index.css?v=1564902024796"></head>
+<body id="login">
+    <div class="header">
+    <div class="brand">
+        <h1>lalala...</h1>
+    </div>
+</div>
+    <div class="back">
+        <div id="login-area">
+            <h1>密码登录</h1>
+            <div id="login-container"></div>
+        </div>
+    </div>
 
-<body>
-    <div class="header">header</div>
-    <h1>Hello World!</h1>
-    <div class="footer">footer</div>
+    <div class="footer">
+    Account System Sdk
+</div>
+<script type="text/javascript">
+    window.onload = function() {
+        var setfooterHeight = function() {
+            document.querySelector('.footer').style.marginTop = '0px';
+            if (window.innerHeight > document.body.offsetHeight) {
+                document.querySelector('.footer').style.marginTop = (window.innerHeight - document.body.offsetHeight) + 'px';
+            }
+        }
+
+        setfooterHeight();
+        window.addEventListener('resize', function(e) {
+            setfooterHeight();
+        })
+    }
+</script>
     
     
-<script type="text/javascript" src="../lib/vendors.js"></script><script type="text/javascript" src="..\js\index.js?v=1564761996506"></script></body>
-
+    
+<script type="text/javascript" src="../lib/vendors.js"></script><script type="text/javascript" src="..\js\index.js?v=1564902024796"></script><script type="text/javascript">
+        login({container: document.getElementById('login-container'),
+            autocomplete: false,
+            success: function() {
+                location.replace('profile.html');
+            }});
+    </script></body>
 </html>

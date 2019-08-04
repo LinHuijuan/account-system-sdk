@@ -1,2 +1,1 @@
-console.log('a');
-alert('hello world');
+import { login } from './login/init.js'
