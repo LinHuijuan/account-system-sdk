@@ -4,7 +4,7 @@ import FetchMock from 'fetch-mock';
 // 配置需要mock的路由
 FetchMock.mock('/login', (url, opts) => {
     const params = opts.params;
-    if (params.account === '18512345678') {
+    if (params.account === '15876501962') {
         if (params.password === '123456') {
             return {code: 200, message: 'success'};
         }

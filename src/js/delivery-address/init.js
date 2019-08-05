@@ -1,7 +1,7 @@
 import '../common/polyfill';
 import render from './render';
 
-const delivery = (opts = {}) => {
+window.delivery = (opts = {}) => {
     var defaultOpts = {
 
     };
@@ -9,5 +9,3 @@ const delivery = (opts = {}) => {
     var options = Object.assign(defaultOpts, opts)
     render(options);
 }
-
-export { delivery }

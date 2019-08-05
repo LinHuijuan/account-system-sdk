@@ -4,60 +4,52 @@
  * @params String opts.unsuccessTip 未验证成功时的提示语
  * @params String opts.successTip 验证成功时的提示语
  */
-
-
-/*
- * symbol可用于私有方法
- */
-
 import utils from '../common/utils';
 
 const { domSelector: $ } = utils;
+// symbol可用于私有方法
 const render = Symbol('render');
 const bindEvent = Symbol('bindEvent');
 const style =
-`<style>
-    .vs-wrapper {
-        position: relative;
-        width: 100%;
-        height: 100%;
-    }
+    `<style>
+        .register-verify-wrapper {
+            height: 36px;
+            font-size: 14px;
+            line-height: 36px;
+        }
+        .vs-wrapper {
+            position: relative;
+            width: 300px;
+            height: 100%;
+        }
 
-    .vs-moved-bg {
-        background: green;
-        width: 0;
-        position: absolute;
-        z-index: 999;
-        height: 100%;
-    }
+        .vs-moved-bg {
+            background: #7ac23c;
+            width: 0;
+            position: absolute;
+            z-index: 999;
+            height: 100%;
+        }
 
-    .vs-unmoved-bg {
-        background: gray;
-        width: 100%;
-        position:absolute
-        z-index: 998;
-        height: 100%;
-    }
+        .vs-text {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            text-align: center;
+            color: #9c9c9c;
+            font-size: 12px;
+        }
 
-    .vs-text {
-        position: absolute;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-        backgound: rgba(0,0,0,0);
-        text-align: center;
-    }
-
-    .vs-move-btn {
-        height: 100%;
-        width: 30px;
-        background: #333333;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1001;
-    }
-</style>`
+        .vs-move-btn {
+            height: 100%;
+            width: 30px;
+            background: #ccc;
+            position: absolute;
+            left: 0;
+            z-index: 1001;
+        }
+    </style>`
 
 class Slider {
     constructor(opts) {
@@ -72,6 +64,7 @@ class Slider {
     }
 
     [render](opts) {
+        // 未验证成功时的提示语
         const unsuccessTip = opts.unsuccessTip || '请按住滑块，拖动到最右边';
         /*
          * vs = verify-slider
@@ -80,7 +73,6 @@ class Slider {
             <div id="vs-wrapper" class="vs-wrapper">
                 <div id="vs-moved-bg" class="vs-moved-bg"></div>
                 <span id="vs-move-btn" class="vs-move-btn"></span>
-                <div id="vs-unmoved-bg" class="vs-unmoved-bg"></div>
                 <span id="vs-text" class="vs-text" ondrag="return false;">${ unsuccessTip }</span>
             </div>
         `
@@ -110,6 +102,7 @@ class Slider {
             if (this.start && !this.end) {
                 let offset = e.pageX - this.startX;
                 let r1 = $moved.offsetLeft + parseInt(window.getComputedStyle($moved).width);
+
                 let r2 = parseInt(window.getComputedStyle($wrapper).width) - parseInt(window.getComputedStyle($btn).width);
                 $btn.style.left = offset + 'px';
                 $moved.style.width = offset + 'px';

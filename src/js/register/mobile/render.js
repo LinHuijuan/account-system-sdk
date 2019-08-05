@@ -17,7 +17,7 @@ const tpl = (opts = {}) => {
                 <div class="register-verify-dialog-close" id="register-verify-dialog-close"></div>
             </div>
             <p class="register-tip">
-                <img src="../images/tip-fill.png">校验码已发送到你的手机，15分钟内输入有效，请勿泄漏
+                校验码已发送到你的手机，15分钟内输入有效，请勿泄漏
             </p>
             <form id="register-verify-form" onsubmit="return false">
                 <label>
@@ -30,7 +30,7 @@ const tpl = (opts = {}) => {
                 </label>
                 <label>
                     <span>&nbsp;</span>
-                    <div class="register-tip"><img src="../images/ok-fill.png">校验码已发送至你的手机，请查收</div>
+                    <div class="register-tip">校验码已发送至你的手机，请查收</div>
                 </label>
                 <input id="register-mobile-btn" class="disabled" disabled type="submit" value="确认">
             </form>

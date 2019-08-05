@@ -5,11 +5,6 @@
  * @params String opts.successTip 验证成功时的提示语
  */
 
-
-/*
- * symbol可用于私有方法
- */
-
 import utils from './utils';
 import { fetchJson } from './fetch';
 
@@ -136,7 +131,6 @@ class Region {
         $areaSelect.onchange = (e) => {
             areaChange();
         }
-
 
     }
 

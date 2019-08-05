@@ -1,9 +1,3 @@
-/*
- * 正则
- * 修饰器@
- * Array.from
- */
-
 const formatText = (key) => {
     return '您填写的' + key + '格式不正确'
 };
@@ -44,35 +38,17 @@ const rules = {
     }
 }
 
-// const tip = (dom, errorArr) => {
-//     if (errorArr.length) {
-//         const span = document.createElement('span');
-//         span.innerText = errorArr[0].message;
-//         dom.parentNode.appendChild(span);
-//     }
-//     else {
-//         return true;
-//     }
-// }
-
-/*
- * ES6 Class讲解
- */
-
 class FormCheck {
     constructor (opts) {
         this.opts = opts;
     }
 
     check (form) {
+        
         const elements = this.opts.form.elements || document.getElementById(this.opts.form).elements;
-
+        
         let checkResults = [];
 
-        // [].filter.call(elements, (item) => {
-        /*
-         * Array.from 将array like转为真正的array
-         */
         Array.from(elements).filter( (item) => {
             return item.getAttribute('valid');
         }).map((item) => {
@@ -86,13 +62,6 @@ class FormCheck {
                 }
             })
 
-
-            // if (this.opts.handle) {
-            //     this.opts.handle(item, errorArr);
-            // }
-            // else {
-            //     tip(item, errorArr);
-            // }
             if (errorArr.length) {
                 checkResults.push({
                     dom: item,

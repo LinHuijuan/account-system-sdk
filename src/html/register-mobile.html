@@ -8,7 +8,6 @@
     <meta name="description" content="" />
     <meta name="apple-mobile-web-app-capable" content="no" />
     <meta name="format-detection" content="telephone=no">
-    <link rel="stylesheet" type="text/css" href="../css/register.less" />
 </head>
 <body id="login">
     @@include('./templates/header.html', {})
@@ -36,7 +35,7 @@
             document.querySelector('.register-steps').style.display = 'none';
             document.querySelector('title').innerText = '手机验证';
         }
-        var registerMobile = pass.regMobile({
+        regMobile({
             container: document.getElementById('container'),
             success: function() {
                 if (getUrlParams('bind')) {

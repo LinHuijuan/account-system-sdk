@@ -2,7 +2,7 @@ import '../../common/polyfill';
 import render from './render';
 import bindEvent from './event';
 // import FormCheck from '../common/formCheck';
-const regMobile = (opts = {}) => {
+window.regMobile = (opts = {}) => {
     var defaultOpts = {
         mobilePlaceHolder: '请输入您的手机号',
     };
@@ -12,5 +12,3 @@ const regMobile = (opts = {}) => {
     render(options);
     bindEvent(options);
 }
-
-export { regMobile }

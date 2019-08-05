@@ -4,7 +4,7 @@ import bindEvent from './event';
 
 
 
-const forget = (opts = {}) => {
+window.forget = (opts = {}) => {
     var defaultOpts = {
 
     };
@@ -14,7 +14,3 @@ const forget = (opts = {}) => {
     render(options);
     bindEvent(options);
 }
-
-export { forget }
-
-// new FormCheck({});

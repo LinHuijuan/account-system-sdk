@@ -11,6 +11,7 @@ export default (opts) => {
 
     const $mobileInput = $('#register-mobile-input');
     const $verifyInput = $('#register-verify-input');
+    // 下一步按钮
     const $verifyBtn = $('#register-verify-btn');
     const $mobileBtn = $('#register-mobile-btn');
     const $verifyMobile = $('#register-verify-mobile');
@@ -27,11 +28,9 @@ export default (opts) => {
             let data = await fetchPost('/getMobileVerifyToken', {});
             if (data.code === 200) {
                 mobileVerifyToken = data.mobileVerifyToken;
-                addClass($wrapper, 'success');
                 $text.innerText = '验证成功';
             }
             else {
-                addClass($wrapper, 'failed');
                 $text.innerText = '验证失败';
             }
 
@@ -51,6 +50,7 @@ export default (opts) => {
             else if (type === 'mobile') {
                 alert('请填写正确的手机号');
             }
+            // slider.reset();
         }
         else {
             let data = await fetchPost('/register/getVerifyCode', {
@@ -60,10 +60,10 @@ export default (opts) => {
             if (data.code === 200) {
                 //location.replace('register-info.html');
                 $dialog.style.display = 'block';
+                // 显示输入的手机号
                 $verifyMobile.innerText = data.mobile;
                 // opts.success && opts.success();
                 mobileVerifyToken = '';
-                slider.reset();
             }
         }
     }

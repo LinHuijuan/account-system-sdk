@@ -20,9 +20,5 @@ window.login = (opts = {}) => {
     var options = Object.assign(defaultOpts, opts)
 
     render(options);
-    // bindEvent(options);
+    bindEvent(options);
 }
-
-// export { login }
-
-// new FormCheck({});

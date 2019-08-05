@@ -61,6 +61,11 @@ var webpackConf = {
         //devtool: "cheap-eval-source-map",  //快速打包
         cache: true,
         plugins: [
+            new webpack.HotModuleReplacementPlugin(),
+            new webpack.DllReferencePlugin({
+                context: __dirname,
+                manifest: require('./manifest.json'),
+            }),
             new HappyPack({
                 id: 'js',
                 cache: true,
@@ -75,9 +80,17 @@ var webpackConf = {
     },
 
     dest: {
+        output: {
+            library: 'pass',
+            libraryTarget: 'umd'
+        },
         devtool: false,
         cache: false,
         plugins: [
+            new webpack.DllReferencePlugin({
+                context: __dirname,
+                manifest: require('./manifest.json'),
+            }),
             new webpack.optimize.ModuleConcatenationPlugin(),
             new HappyPack({
                 id: 'js',

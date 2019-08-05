@@ -1,6 +1,3 @@
-/*
- * export {xx, yy} 可以这样import, export obj则不行，新的babel禁止
- */
 import { fetchPost } from '../common/fetch';
 import utils from '../common/utils';
 import FormCheck from '../common/form-check';
@@ -52,7 +49,6 @@ export default (opts) => {
                 remember: remember
             });
 
-            console.log(data);
             if (data.code === 200) {
                 alert('登录成功');
                 opts.success && opts.success();
